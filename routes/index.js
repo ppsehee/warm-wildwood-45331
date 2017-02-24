@@ -24,4 +24,9 @@ router.post('/', function (req, res) {
     res.redirect("/main");
 });
 
+router.get('/logout', function (req, res) {
+    req.session.destroy();
+    res.redirect("/");
+});
+
 module.exports = router;

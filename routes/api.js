@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var multer = require('multer');
-var upload = multer({dest: '../public/uploads/'});
+var upload = multer({dest: 'uploads/'});
 var FileManager = require('../file/FileManager');
 var InfoDAO = require('../models/InfoDAO');
 var InfoDTO = require('../models/InfoDTO');
@@ -10,12 +10,13 @@ var InfoDTO = require('../models/InfoDTO');
 
 /* GET home page. */
 router.post('/', upload.single('recordFile'), function (req, res) {
-
     let file = req.file;
 
     if (!file) {
         return res.status(400).json({message: "녹음 파일이 존재하지 않습니다!"});
     }
+
+    console.log(file.mimetype);
 
     let info = req.body.info;
 
@@ -59,7 +60,7 @@ router.post('/', upload.single('recordFile'), function (req, res) {
         return res.status(400).json({message: "차량 번호는 공백이 허용되지 않습니다!"});
     }
 
-    info.time = new Date();
+    info.time = new Date().getTime();
 
     FileManager.moveFileFromTempPath(file, function (uploadPath) {
         console.log(uploadPath);

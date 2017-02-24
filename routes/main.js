@@ -13,9 +13,13 @@ router.get('/', function (req, res) {
     });
 });
 
-router.get('/logout', function (req, res) {
-    req.session.destroy();
-    res.redirect("/");
+router.get('/location/:id', function (req, res) {
+    let id = req.params.id;
+
+    InfoDAO.selectInfoById(id, function (errorMessage, data) {
+        console.log(data);
+        res.render('location', {title: '발신위치', data: data});
+    })
 });
 
 module.exports = router;
