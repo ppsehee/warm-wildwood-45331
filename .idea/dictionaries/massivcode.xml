@@ -2,6 +2,7 @@
   <dictionary name="massivcode">
     <words>
       <w>dest</w>
+      <w>mimetype</w>
       <w>multer</w>
     </words>
   </dictionary>

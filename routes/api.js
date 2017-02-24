@@ -16,7 +16,11 @@ router.post('/', upload.single('recordFile'), function (req, res) {
         return res.status(400).json({message: "녹음 파일이 존재하지 않습니다!"});
     }
 
-    console.log(file.mimetype);
+    const mimetype = file.mimetype.split("/")[0];
+
+    if (mimetype != 'audio') {
+        return res.status(400).json({message: "녹음 파일의 마임 타입이 오디오 타입이 아닙니다!"});
+    }
 
     let info = req.body.info;
 
