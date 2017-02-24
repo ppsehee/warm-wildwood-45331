@@ -7,7 +7,7 @@
 var fs = require('fs');
 
 // 녹음 파일 업로드 경로
-const UPLOAD_PATH = "../public/images/products/";
+const UPLOAD_PATH = "../public/uploads/";
 
 
 /**
