@@ -9,7 +9,7 @@ var InfoDTO = require('../models/InfoDTO');
 
 
 /* GET home page. */
-router.post('/', upload.single('recordFile'), function (req, res) {
+router.post('/info', upload.single('recordFile'), function (req, res) {
     let file = req.file;
 
     if (!file) {
