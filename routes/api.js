@@ -80,5 +80,59 @@ router.post('/info', upload.single('recordFile'), function (req, res) {
     })
 });
 
+router.post('/info/data_only', function (req, res) {
+    let info = req.body.info;
+
+    if (!info) {
+        return res.status(400).json({message: "데이터는 공백이 허용되지 않습니다!"});
+    }
+
+    try {
+        info = JSON.parse(info);
+    } catch (e) {
+        return res.status(400).json({message: "데이터가 JSON 형식이 아닙니다!"});
+    }
+
+    const receiver = info.receiver;
+
+    if (!receiver) {
+        return res.status(400).json({message: "보호자 전화번호는 공백이 허용되지 않습니다!"});
+    }
+
+    const caller = info.caller;
+
+    if (!caller) {
+        return res.status(400).json({message: "사용자 전화번호는 공백이 허용되지 않습니다!"});
+    }
+
+    const location = info.location;
+
+    if (!location) {
+        return res.status(400).json({message: "발신 위치는 공백이 허용되지 않습니다!"});
+    }
+
+    try {
+        let check = JSON.parse(info);
+    } catch (e) {
+        return res.status(400).json({message: "발신 위치 데이터가 JSON 형식이 아닙니다!"});
+    }
+
+    const car_number = info.car_number;
+
+    if (!car_number) {
+        return res.status(400).json({message: "차량 번호는 공백이 허용되지 않습니다!"});
+    }
+
+    info.time = new Date().getTime();
+
+    InfoDAO.inputInfo(new InfoDTO(info.id, info.receiver, info.caller, info.location, info.time, null, info.car_number), function (isSuccessful, message) {
+        if (isSuccessful) {
+            return res.status(201).json(message);
+        } else {
+            return res.status(500).json(message);
+        }
+    })
+});
+
 
 module.exports = router;

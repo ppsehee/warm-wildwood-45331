@@ -28,17 +28,19 @@
             <td><%= each.caller %></td>
             <td><a href="/main/location/<%= each.id %>">확인</a></td>
             <td><%= each.time %></td>
+            <% if (each.file) { %>
             <td>
                 <audio controls="controls">
-                    <source src="<%= each.file %>" type="audio/mp3" />
-                    <source src="<%= each.file %>" type="audio/ogg" />
+                    <source src="<%= each.file %>" type="audio/mp3"/>
+                    <source src="<%= each.file %>" type="audio/ogg"/>
                     <p>지원하지 않는 브라우저 입니다!</p>
                 </audio>
-                <!--<audio src="<%= each.file %>" controls>-->
-                    <!--<p>Fallback content goes here.</p>-->
-                <!--</audio>-->
-                <!--<embed src="<%= each.file %>" width="180" height="90" autostart="false"></embed>-->
             </td>
+            <% }
+            else { %>
+            <td>없음</td>
+            <% } %>
+
             <td><%= each.car_number %></td>
 
             <% }
