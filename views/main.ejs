@@ -18,15 +18,20 @@
             <th>녹음파일</th>
             <th>차량 번호</th>
         </tr>
-        <tr>
-            <% if (data) {
-            for (var i = 0; i < data.length; i++) {
-                var each = data[i]; %>
 
+        <% if (data) {
+        for (var i = 0; i < data.length; i++) {
+            var each = data[i]; %>
+        <tr>
             <td><%= each.id %></td>
             <td><%= each.receiver %></td>
             <td><%= each.caller %></td>
+            <% if (each.location) { %>
             <td><a href="/main/location/<%= each.id %>">확인</a></td>
+            <% } else { %>
+            <td>없음</td>
+            <% } %>
+
             <td><%= each.time %></td>
             <% if (each.file) { %>
             <td>
@@ -42,10 +47,10 @@
             <% } %>
 
             <td><%= each.car_number %></td>
-
-            <% }
-            } %>
         </tr>
+        <% }
+        } %>
+
     </table>
 </div>
 

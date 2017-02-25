@@ -66,15 +66,17 @@ module.exports.selectInfoById = function (id, callback) {
 };
 
 module.exports.inputInfo = function (info, callback) {
-    const SQL = "INSERT INTO info (receiver, caller, location, time, file, car_number) VALUES (?, ?, ?, ?, ?, ?)";
-
+    const SQL = "INSERT INTO info (receiver, caller, location, time, file, car_number) VALUES (?, ?, ?, NOW(), ?, ?)";
+    console.log(info);
     pool.getConnection(function (err, conn) {
         if (err) {
+            console.log(err);
             callback(false, {message: "DbError"});
             conn.release();
         } else {
-            conn.query(SQL, [info.receiver, info.caller, info.location, info.time, info.file, info.car_number], function (err, result) {
+            conn.query(SQL, [info.receiver, info.caller, info.location, info.file, info.car_number], function (err, result) {
                 if (err) {
+                    console.log(err);
                     callback(false, {message: "SqlError"});
                     conn.release();
                 } else {
