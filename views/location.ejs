@@ -14,17 +14,20 @@
             <th>위도</th>
             <th>경도</th>
         </tr>
+
+        <% if (data) {
+        for (var i = 0; i < data.length; i++) {
+            var each = data[i]; %>
+
         <tr>
-            <% if (data) {
-            for (var i = 0; i < data.length; i++) {
-                var each = data[i]; %>
             <td><%= i + 1 %></td>
             <td><%= each.latitude %></td>
             <td><%= each.longitude %></td>
-
-            <% }
-            } %>
         </tr>
+
+        <% }
+        } %>
+
     </table>
 </div>
 

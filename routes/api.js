@@ -60,11 +60,7 @@ router.post('/info', upload.single('recordFile'), function (req, res) {
         return res.status(400).json({message: "발신 위치는 공백이 허용되지 않습니다!"});
     }
 
-    try {
-        let check = JSON.parse(info);
-    } catch (e) {
-        info.location = null;
-    }
+    info.location = JSON.stringify(location);
 
     const car_number = info.car_number;
 
@@ -123,11 +119,7 @@ router.post('/info/data_only', function (req, res) {
         return res.status(400).json({message: "발신 위치는 공백이 허용되지 않습니다!"});
     }
 
-    try {
-        let check = JSON.parse(info);
-    } catch (e) {
-        info.location = null;
-    }
+    info.location = JSON.stringify(location);
 
     const car_number = info.car_number;
 
