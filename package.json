@@ -1,7 +1,7 @@
 {
   "apps": [{
     "name": "example",
-    "script": "./bin/joljack",
+    "script": "./bin/joljak",
     "watch": false,
     "env": {
       "NODE_ENV": "production"
