@@ -36,8 +36,8 @@
             <% if (each.file) { %>
             <td>
                 <audio controls="controls">
-                    <source src="<%= each.file %>" type="audio/mp3"/>
-                    <source src="<%= each.file %>" type="audio/ogg"/>
+                    <source src="/tmp/<%= each.file %>" type="audio/mp3"/>
+                    <source src="/tmp/<%= each.file %>" type="audio/ogg"/>
                     <p>지원하지 않는 브라우저 입니다!</p>
                 </audio>
             </td>
