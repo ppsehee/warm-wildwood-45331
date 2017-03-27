@@ -16,7 +16,8 @@ router.post('/info', upload.single('recordFile'), function (req, res) {
 
     if (!file) {
         console.log("녹음 파일이 존재하지 않습니다!");
-        return res.status(400).json({message: "녹음 파일이 존재하지 않습니다!"});
+        
+        return res.status(400).json({message: "녹음 파일이 존재하지 않습니다!"}); 
     }
 
     const mimetype = file.mimetype.split("/")[0];
