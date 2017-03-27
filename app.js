@@ -31,6 +31,7 @@ app.use(session({
 app.use('/', require('./routes/index'));
 app.use('/main', require('./routes/main'));
 app.use('/api', require('./routes/api'));
+app.use('/test', require('./routes/test'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
