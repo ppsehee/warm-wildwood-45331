@@ -21,7 +21,6 @@ app.use(bodyParser.urlencoded({extended: false, parameterLimit: 10000000000000, 
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'tmp')));
 
 app.use(session({
     secret: 'secret key',
