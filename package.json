@@ -1,15 +1,15 @@
 {
-  "apps": [{
-    "name": "example",
-    "script": { 
-        "start" : "./bin/joljak"
+    "name" : "example",
+    "version" : "0.1.0",
+    "description" : "A example",
+    "main" : "./bin/joljak",
+    "scripts": {
+        "start": "node ./bin/joljak"
     },
     "watch": false,
     "env": {
       "NODE_ENV": "production"
-    
     },
     "exec_mode": "cluster",
     "instances": 0
-  }]
 }
