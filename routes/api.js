@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 
 var multer = require('multer');
-var upload = multer({dest: '../public/uploads/temp/'});
+var upload = multer({dest: '../tmp/'});
 var FileManager = require('../file/FileManager');
 var InfoDAO = require('../models/InfoDAO');
 var InfoDTO = require('../models/InfoDTO');
