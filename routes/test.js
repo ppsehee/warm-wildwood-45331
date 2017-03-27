@@ -15,3 +15,5 @@ router.get('/dbtest', function (req, res) {
         response.send(['DB test', rows]);
     });
 });
+
+module.exports = router;
